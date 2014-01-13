@@ -23,18 +23,18 @@
 
 - (void)openDB
 {
-    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *dbFilePath = [docPath stringByAppendingPathComponent:@"db.sqlite"];
     
     NSFileManager *fm = [NSFileManager defaultManager];
     BOOL existFile = [fm fileExistsAtPath:dbFilePath];
     
     int ret = sqlite3_open([dbFilePath UTF8String], &db);
-    NSAssert1(SQLITE_OK == ret, @"Error  %s", sqlite3_errmsg(db));
+    NSAssert1(SQLITE_OK == ret, @"Error on opening Database:%s", sqlite3_errmsg(db));
     NSLog(@"Success");
     
     if (existFile == NO) {
-        const char *creatSQL = "CREAT TABLE IF NOT EXISTS MOVIE (TITLE TEXT)";
+        const char *creatSQL = "CREATE TABLE IF NOT EXISTS MOVIE (TITLE TEXT)";
         char *errorMsg;
         ret = sqlite3_exec(db, creatSQL, NULL, NULL, &errorMsg);
         if (SQLITE_OK != ret) {
@@ -49,7 +49,7 @@
 {
     NSLog(@"adding data : %@", input);
     
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO MOVIE (TITLE) VALUE ('%@')", input];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO MOVIE (TITLE) VALUES ('%@')", input];
     NSLog(@"sql : %@", sql);
     
     char *errMsg;
@@ -76,7 +76,7 @@
     NSAssert2(SQLITE_OK == ret, @"Error(%d) on resolving data : %s", ret,sqlite3_errmsg(db));
     
     while (SQLITE_ROW == sqlite3_step(stmt)) {
-        int rowID = sqlite3_colums_int(stmt, 0);
+        int rowID = sqlite3_column_int(stmt, 0);
         char *title = (char *)sqlite3_column_text(stmt, 1);
         
         Movie *one = [[Movie alloc] init];
@@ -94,7 +94,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if ([textField.text length] > 1) {
-        [self addData:textField];
+        [self addData:textField.text];
         [textField resignFirstResponder];
         textField.text = @"";
     }
