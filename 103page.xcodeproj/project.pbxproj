@@ -21,6 +21,10 @@
 		00B522C91883D5DF00E106B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B522AB1883D5DF00E106B7 /* UIKit.framework */; };
 		00B522D11883D5DF00E106B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B522CF1883D5DF00E106B7 /* InfoPlist.strings */; };
 		00B522D31883D5DF00E106B7 /* _03pageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B522D21883D5DF00E106B7 /* _03pageTests.m */; };
+		00B522DE1883D60D00E106B7 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B522DD1883D60D00E106B7 /* Movie.m */; };
+		00B522E01883DF9100E106B7 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 00B522DF1883DF9100E106B7 /* db.sqlite */; };
+		00B522E11883DF9100E106B7 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 00B522DF1883DF9100E106B7 /* db.sqlite */; };
+		00B522E31883E0ED00E106B7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B522E21883E0ED00E106B7 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,11 @@
 		00B522CE1883D5DF00E106B7 /* 103pageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "103pageTests-Info.plist"; sourceTree = "<group>"; };
 		00B522D01883D5DF00E106B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00B522D21883D5DF00E106B7 /* _03pageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _03pageTests.m; sourceTree = "<group>"; };
+		00B522DC1883D60D00E106B7 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		00B522DD1883D60D00E106B7 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		00B522DF1883DF9100E106B7 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
+		00B522E21883E0ED00E106B7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		00B522E41883E0FB00E106B7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B522E31883E0ED00E106B7 /* libsqlite3.dylib in Frameworks */,
 				00B522AA1883D5DF00E106B7 /* CoreGraphics.framework in Frameworks */,
 				00B522AC1883D5DF00E106B7 /* UIKit.framework in Frameworks */,
 				00B522A81883D5DF00E106B7 /* Foundation.framework in Frameworks */,
@@ -101,6 +111,8 @@
 		00B522A61883D5DF00E106B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00B522E41883E0FB00E106B7 /* libsqlite3.0.dylib */,
+				00B522E21883E0ED00E106B7 /* libsqlite3.dylib */,
 				00B522A71883D5DF00E106B7 /* Foundation.framework */,
 				00B522A91883D5DF00E106B7 /* CoreGraphics.framework */,
 				00B522AB1883D5DF00E106B7 /* UIKit.framework */,
@@ -113,12 +125,15 @@
 			isa = PBXGroup;
 			children = (
 				00B522B61883D5DF00E106B7 /* AppDelegate.h */,
+				00B522DF1883DF9100E106B7 /* db.sqlite */,
 				00B522B71883D5DF00E106B7 /* AppDelegate.m */,
 				00B522B91883D5DF00E106B7 /* Main.storyboard */,
 				00B522BC1883D5DF00E106B7 /* ViewController.h */,
 				00B522BD1883D5DF00E106B7 /* ViewController.m */,
 				00B522BF1883D5DF00E106B7 /* Images.xcassets */,
 				00B522AE1883D5DF00E106B7 /* Supporting Files */,
+				00B522DC1883D60D00E106B7 /* Movie.h */,
+				00B522DD1883D60D00E106B7 /* Movie.m */,
 			);
 			path = 103page;
 			sourceTree = "<group>";
@@ -231,6 +246,7 @@
 				00B522C01883D5DF00E106B7 /* Images.xcassets in Resources */,
 				00B522B21883D5DF00E106B7 /* InfoPlist.strings in Resources */,
 				00B522BB1883D5DF00E106B7 /* Main.storyboard in Resources */,
+				00B522E01883DF9100E106B7 /* db.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00B522D11883D5DF00E106B7 /* InfoPlist.strings in Resources */,
+				00B522E11883DF9100E106B7 /* db.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +268,7 @@
 			files = (
 				00B522BE1883D5DF00E106B7 /* ViewController.m in Sources */,
 				00B522B81883D5DF00E106B7 /* AppDelegate.m in Sources */,
+				00B522DE1883D60D00E106B7 /* Movie.m in Sources */,
 				00B522B41883D5DF00E106B7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
